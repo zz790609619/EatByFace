@@ -3,8 +3,12 @@ package com.alipay.demo.controller;
 import com.alipay.demo.entity.User;
 import com.alipay.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Song on 2017/2/15.
@@ -28,6 +32,15 @@ public class UserController {
         user= userService.findUserById(user);
         if(null != user)
             return user.getId()+"/"+user.getName()+"/";
+        else return "null";
+    }
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @ResponseBody
+    public String show(){
+        List<User> userList=new ArrayList<>();
+        userList= userService.getAllList();
+        if(null != userList)
+            return "sas";
         else return "null";
     }
 }
