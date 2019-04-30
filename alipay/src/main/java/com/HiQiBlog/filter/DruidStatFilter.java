@@ -1,4 +1,4 @@
-package com.alipay.demo.filter;
+package com.HiQiBlog.filter;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 

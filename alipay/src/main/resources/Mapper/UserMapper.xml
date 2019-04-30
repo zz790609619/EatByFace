@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.alipay.demo.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.alipay.demo.entity.User" >
+<mapper namespace="com.HiQiBlog.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.HiQiBlog.entity.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
@@ -23,11 +23,11 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.alipay.demo.entity.User" >
+  <insert id="insert" parameterType="com.HiQiBlog.entity.User" >
     insert into user (id, name)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.alipay.demo.entity.User" >
+  <insert id="insertSelective" parameterType="com.HiQiBlog.entity.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -46,7 +46,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.alipay.demo.entity.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.HiQiBlog.entity.User" >
     update user
     <set >
       <if test="name != null" >
@@ -55,7 +55,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.alipay.demo.entity.User" >
+  <update id="updateByPrimaryKey" parameterType="com.HiQiBlog.entity.User" >
     update user
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

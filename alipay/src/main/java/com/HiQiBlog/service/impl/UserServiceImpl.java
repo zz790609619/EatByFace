@@ -1,8 +1,8 @@
-package com.alipay.demo.service.impl;
+package com.HiQiBlog.service.impl;
 
-import com.alipay.demo.entity.User;
-import com.alipay.demo.mapper.UserMapper;
-import com.alipay.demo.service.UserService;
+import com.HiQiBlog.entity.User;
+import com.HiQiBlog.mapper.UserMapper;
+import com.HiQiBlog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;

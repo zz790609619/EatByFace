@@ -1,4 +1,4 @@
-package com.alipay.demo.servlet;
+package com.HiQiBlog.servlet;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 

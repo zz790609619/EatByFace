@@ -1,9 +1,8 @@
-package com.alipay.demo.controller;
+package com.HiQiBlog.controller;
 
-import com.alipay.demo.entity.User;
-import com.alipay.demo.service.UserService;
+import com.HiQiBlog.entity.User;
+import com.HiQiBlog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

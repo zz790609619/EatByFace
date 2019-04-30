@@ -1,4 +1,4 @@
-package com.alipay.demo;
+package com.HiQiBlog;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.alipay.demo.mapper")
+@MapperScan("com.HiQiBlog.mapper")
 @ServletComponentScan
-public class demoApplication {
+public class hiQiBlogApplication {
     public static void main(String[] args) {
-        SpringApplication.run(demoApplication.class, args);
+        SpringApplication.run(hiQiBlogApplication.class, args);
     }
 }
