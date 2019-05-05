@@ -1,4 +1,5 @@
-package com.HiQiBlog.config;
+
+package com.hiQiBlog.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;

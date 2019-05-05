@@ -1,5 +1,5 @@
-package com.HiQiBlog.filter;
 
+package com.hiQiBlog.filter;
 import com.alibaba.druid.support.http.WebStatFilter;
 
 import javax.servlet.annotation.WebFilter;

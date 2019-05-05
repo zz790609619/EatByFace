@@ -1,6 +1,7 @@
-package com.HiQiBlog.service;
 
-import com.HiQiBlog.entity.User;
+package com.hiQiBlog.service;
+
+import com.hiQiBlog.entity.User;
 
 import java.util.List;
 

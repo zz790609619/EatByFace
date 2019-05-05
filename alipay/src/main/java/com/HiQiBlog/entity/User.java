@@ -1,5 +1,5 @@
-package com.HiQiBlog.entity;
 
+package com.hiQiBlog.entity;
 import java.io.Serializable;
 
 public class User implements Serializable {

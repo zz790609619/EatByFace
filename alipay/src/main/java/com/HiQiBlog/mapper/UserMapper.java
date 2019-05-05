@@ -1,6 +1,7 @@
-package com.HiQiBlog.mapper;
 
-import com.HiQiBlog.entity.User;
+package com.hiQiBlog.mapper;
+
+import com.hiQiBlog.entity.User;
 
 import java.util.List;
 

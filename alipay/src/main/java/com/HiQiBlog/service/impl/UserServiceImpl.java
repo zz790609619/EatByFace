@@ -1,8 +1,10 @@
-package com.HiQiBlog.service.impl;
 
-import com.HiQiBlog.entity.User;
-import com.HiQiBlog.mapper.UserMapper;
-import com.HiQiBlog.service.UserService;
+package com.hiQiBlog.service.impl;
+
+import com.hiQiBlog.entity.User;
+import com.hiQiBlog.mapper.UserMapper;
+import com.hiQiBlog.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
