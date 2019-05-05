@@ -1,6 +1,6 @@
-package com.alipay.demo.mapper;
+package com.hiQiBlog.mapper;
 
-import com.alipay.demo.entity.User;
+import com.hiQiBlog.entity.User;
 
 import java.util.List;
 

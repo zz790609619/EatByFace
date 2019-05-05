@@ -1,4 +1,4 @@
-package com.alipay.demo.config;
+package com.hiQiBlog.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;

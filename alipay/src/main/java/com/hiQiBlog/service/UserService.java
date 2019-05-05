@@ -1,6 +1,6 @@
-package com.alipay.demo.service;
+package com.hiQiBlog.service;
 
-import com.alipay.demo.entity.User;
+import com.hiQiBlog.entity.User;
 
 import java.util.List;
 

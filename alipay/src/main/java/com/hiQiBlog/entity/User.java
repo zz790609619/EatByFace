@@ -1,4 +1,4 @@
-package com.alipay.demo.entity;
+package com.hiQiBlog.entity;
 
 import java.io.Serializable;
 

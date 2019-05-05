@@ -1,4 +1,4 @@
-package com.alipay.demo;
+package com.hiQiBlog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
