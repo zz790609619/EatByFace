@@ -1,7 +1,7 @@
 package com.hiQiBlog.service.impl;
 
 
-import com.hiQiBlog.service.SendEmailSevice;
+import com.hiQiBlog.service.ISendEmailSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,7 @@ import javax.mail.internet.MimeMessage;
 
 
 @Service
-public class SendEmailSeviceImpl implements SendEmailSevice {
+public class SendEmailSeviceImpl implements ISendEmailSevice {
     @Value("${spring.mail.username}")
     private String fromEmail;
 
