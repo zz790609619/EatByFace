@@ -19,8 +19,22 @@ server:
   port: 8090
   tomcat:
     uri-encoding: utf-8
-#durid框架
+
 spring:
+  #  定时发送邮件
+  mail:
+    password: iptvzyrtftwobcib
+    default-encoding: UTF-8
+    host: smtp.qq.com
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+    username: 554850043@qq.com
+    #durid框架
   datasource:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -85,3 +99,5 @@ quartz:
           threadsInheritContextClassLoaderOfInitializingThread: true
   #数据库方式
   job-store-type: jdbc
+
+

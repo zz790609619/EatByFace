@@ -1,48 +1,47 @@
 package com.hiQiBlog.config;
 
-import com.hiQiBlog.job.MyCronJob;
-import com.hiQiBlog.job.MyJob;
+
+
+import com.hiQiBlog.conf.JobFactory;
 import org.quartz.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 @Configuration
 public class QuartzConfiguration {
 
-    // 使用jobDetail包装job
-    @Bean
-    public JobDetail myJobDetail() {
-        return JobBuilder.newJob(MyJob.class).withIdentity("myJob").storeDurably().build();
-    }
 
-    // 把jobDetail注册到trigger上去
-    @Bean
-    public Trigger myJobTrigger() {
-        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
-                .withIntervalInSeconds(15).repeatForever();
 
-        return TriggerBuilder.newTrigger()
-                .forJob(myJobDetail())
-                .withIdentity("myJobTrigger")
-                .withSchedule(scheduleBuilder)
-                .build();
-    }
+    /**
+     * @author ${ww}
+     * @Title: QuartzConfigration
+     * @ProjectName javaemaildemo
+     * @Description: TODO
+     * @date
+     */
+    @Configuration
+    @EnableScheduling
+    public class QuartzConfigration {
 
-    // 使用jobDetail包装job
-    @Bean
-    public JobDetail myCronJobDetail() {
-        return JobBuilder.newJob(MyCronJob.class).withIdentity("myCronJob").storeDurably().build();
-    }
+        @Autowired
+        private JobFactory jobFactory;
 
-    // 把jobDetail注册到Cron表达式的trigger上去
-    @Bean
-    public Trigger CronJobTrigger() {
-        CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule("0/10 * * * * ?");
+        @Bean
+        public SchedulerFactoryBean schedulerFactoryBean() {
+            SchedulerFactoryBean schedulerFactoryBean = new SchedulerFactoryBean();
+            schedulerFactoryBean.setOverwriteExistingJobs(true);
+            schedulerFactoryBean.setJobFactory(jobFactory);
+            return schedulerFactoryBean;
+        }
 
-        return TriggerBuilder.newTrigger()
-                .forJob(myCronJobDetail())
-                .withIdentity("myCronJobTrigger")
-                .withSchedule(cronScheduleBuilder)
-                .build();
+
+        // 创建schedule
+        @Bean(name = "scheduler")
+        public Scheduler scheduler() {
+            return schedulerFactoryBean().getScheduler();
+        }
+
     }
 }
