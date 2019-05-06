@@ -39,7 +39,7 @@
         </sqlMapGenerator>
 
         <!-- 生成接口 XxxMapper.java -->
-        <javaClientGenerator targetPackage="com.HiQiBlog.mapper" targetProject="src/main/java" type="XMLMAPPER" >
+        <javaClientGenerator targetPackage="com.hiQiBlog.mapper" targetProject="src/main/java" type="XMLMAPPER" >
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 

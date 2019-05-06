@@ -8,8 +8,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication
 @MapperScan("com.hiQiBlog.mapper")
 @ServletComponentScan
-public class HiQiBlogApplication {
+public class hiQiBlogApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HiQiBlogApplication.class, args);
+        SpringApplication.run(hiQiBlogApplication.class, args);
     }
 }
