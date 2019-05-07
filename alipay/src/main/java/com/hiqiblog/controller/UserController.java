@@ -1,12 +1,12 @@
 
 package com.hiqiblog.controller;
 import com.hiqiblog.entity.User;
-import com.hiqiblog.service.UserService;
+import com.hiqiblog.service.ISendEmailService;
+import com.hiqiblog.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,8 +16,9 @@ import java.util.List;
 @Controller
 public class UserController {
     @Autowired
-    private UserService userService;
-
+    private IUserService userService;
+    @Autowired
+    private ISendEmailService semdEmailService;
     @RequestMapping(value = "/index")
     public String index(){
         return "index";
@@ -38,8 +39,7 @@ public class UserController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     @ResponseBody
     public String show(){
-        List<User> userList=new ArrayList<User>();
-        userList= userService.getAllList();
+        List<User> userList= userService.getAllList();
         if(null != userList){
             return "sas";
         }

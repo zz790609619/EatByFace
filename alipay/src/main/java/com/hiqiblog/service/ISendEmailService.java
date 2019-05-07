@@ -3,7 +3,7 @@ package com.hiqiblog.service;
  * @author ${ww}=
  * @Description: TODO
  */
-public interface ISendEmailSevice {
+public interface ISendEmailService {
     /**
      * 发送邮件
      * @return

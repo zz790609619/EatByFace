@@ -1,7 +1,7 @@
 package com.hiqiblog.service.impl;
 
 
-import com.hiqiblog.service.ISendEmailSevice;
+import com.hiqiblog.service.ISendEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -17,7 +17,7 @@ import javax.mail.internet.MimeMessage;
  * @Description: TODO
  */
 @Service
-public class SendEmailSeviceImpl implements ISendEmailSevice {
+public class SendEmailServiceImpl implements ISendEmailService {
     @Value("${spring.mail.username}")
     private String fromEmail;
 
@@ -78,7 +78,6 @@ public class SendEmailSeviceImpl implements ISendEmailSevice {
         } catch (MessagingException e) {
             e.printStackTrace();
             //捕获到创建MimeMessageHelper的异常
-//			return false;
             return true;
         }
 

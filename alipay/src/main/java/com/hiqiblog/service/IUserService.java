@@ -9,7 +9,7 @@ import java.util.List;
  * @author ${ww}=
  * @Description: TODO
  */
-public interface UserService  {
+public interface IUserService {
     /**
      * 根据id获取user
      * @param user

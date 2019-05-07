@@ -3,7 +3,7 @@ package com.hiqiblog.service.impl;
 
 import com.hiqiblog.entity.User;
 import com.hiqiblog.mapper.UserMapper;
-import com.hiqiblog.service.UserService;
+import com.hiqiblog.service.IUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -17,7 +17,7 @@ import java.util.List;
  * @Description: TODO
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
     @Autowired
      UserMapper userMapper;
     @Autowired
