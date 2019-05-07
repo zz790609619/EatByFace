@@ -1,15 +1,19 @@
-package com.hiQiBlog;
+package com.hiqiblog;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
+/**
+ * @author ${ww}=
+ * @Description: TODO
+ */
 @SpringBootApplication
-@MapperScan("com.hiQiBlog.mapper")
+@MapperScan("com.hiqiblog.mapper")
 @ServletComponentScan
-public class hiQiBlogApplication {
+public class HiQiBlogApplication {
     public static void main(String[] args) {
-        SpringApplication.run(hiQiBlogApplication.class, args);
+        SpringApplication.run(HiQiBlogApplication.class, args);
     }
 }

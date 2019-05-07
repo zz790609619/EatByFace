@@ -1,7 +1,10 @@
 
-package com.hiQiBlog.entity;
+package com.hiqiblog.entity;
 import java.io.Serializable;
-
+/**
+ * user实体
+ * @author ww
+ */
 public class User implements Serializable {
     private Integer id;
 

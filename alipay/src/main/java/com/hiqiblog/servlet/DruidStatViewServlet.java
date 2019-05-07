@@ -1,10 +1,11 @@
 
-package com.hiQiBlog.servlet;
+package com.hiqiblog.servlet;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
+
 
 /**
  * druid监控视图配置
@@ -16,6 +17,10 @@ import javax.servlet.annotation.WebServlet;
         @WebInitParam(name="loginPassword",value="admin"),// 密码
         @WebInitParam(name="resetEnable",value="true")// 禁用HTML页面上的“Reset All”功能
 })
+/**
+ * @author ${ww}=
+ * @Description: TODO
+ */
 public class DruidStatViewServlet extends StatViewServlet {
 
 }

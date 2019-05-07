@@ -1,11 +1,9 @@
-package com.hiQiBlog.service.impl;
+package com.hiqiblog.service.impl;
 
 
-import com.hiQiBlog.service.ISendEmailSevice;
+import com.hiqiblog.service.ISendEmailSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -14,13 +12,18 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-
+/**
+ * @author ${ww}
+ * @Description: TODO
+ */
 @Service
 public class SendEmailSeviceImpl implements ISendEmailSevice {
     @Value("${spring.mail.username}")
     private String fromEmail;
 
-    //注入spring发送邮件的对象
+    /**
+     * 注入spring发送邮件的对象
+     */
     @Autowired
     private JavaMailSender javaMailSender;
 
@@ -32,7 +35,8 @@ public class SendEmailSeviceImpl implements ISendEmailSevice {
         simpleMailMessage.setSubject("测试");
         simpleMailMessage.setText("utf-8");
         try {
-            javaMailSender.send(simpleMailMessage);        //执行发送
+            //执行发送
+            javaMailSender.send(simpleMailMessage);
         } catch (Exception e) {
             return false;
         }
@@ -64,9 +68,11 @@ public class SendEmailSeviceImpl implements ISendEmailSevice {
 //                return false;    						//没有附件文件（中断发送）
 //            }
             try {
-                    javaMailSender.send(mimeMessage);		//发送邮件
+                //发送邮件
+                    javaMailSender.send(mimeMessage);
                 } catch (Exception e) {
-                    return false;						//发送出现异常(或者文件路径不对)
+                //发送出现异常(或者文件路径不对)
+                    return false;
                 }
                 return true;
         } catch (MessagingException e) {

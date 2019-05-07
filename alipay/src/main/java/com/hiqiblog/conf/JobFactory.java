@@ -1,4 +1,4 @@
-package com.hiQiBlog.conf;
+package com.hiqiblog.conf;
 
 import org.quartz.spi.TriggerFiredBundle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,9 @@ import org.springframework.stereotype.Component;
 public class JobFactory extends AdaptableJobFactory {
     @Autowired
     private AutowireCapableBeanFactory capableBeanFactory;
-    //生成一个job实例
+    /**
+     *  生成一个job实例
+     */
     @Override
     protected Object createJobInstance(TriggerFiredBundle bundle) throws Exception {
         //调用父类的方法

@@ -1,8 +1,8 @@
-package com.hiQiBlog.config;
+package com.hiqiblog.config;
 
 
 
-import com.hiQiBlog.conf.JobFactory;
+import com.hiqiblog.conf.JobFactory;
 import org.quartz.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +16,6 @@ public class QuartzConfiguration {
 
     /**
      * @author ${ww}
-     * @Title: QuartzConfigration
-     * @ProjectName javaemaildemo
      * @Description: TODO
      * @date
      */

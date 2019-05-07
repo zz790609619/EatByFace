@@ -1,24 +1,21 @@
-package com.hiQiBlog.service.impl;
+package com.hiqiblog.service.impl;
 
-import com.hiQiBlog.job.SendEmailJob;
-import com.hiQiBlog.service.IQuartzService;
+import com.hiqiblog.job.SendEmailJob;
+import com.hiqiblog.service.IQuartzService;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @author ${lcl}
- * @Title: QuartzServiceImpl
- * @ProjectName javaemaildemo
- * @Description: TODO
- * @date 2019/2/27 002716:08
- */
+
 /**
  SimpleScheduleBuilder是简单调用触发器，它只能指定触发的间隔时间和执行次数；
  CronScheduleBuilder是类似于Linux Cron的触发器，它通过一个称为CronExpression的规则来指定触发规则，通常是每次触发的具体时间；（关于CronExpression，详见：官方，中文网文）
  CalendarIntervalScheduleBuilder是对CronScheduleBuilder的补充，它能指定每隔一段时间触发一次。
  */
-
+/**
+ * @author ${ww}
+ * @Description: TODO
+ */
 @Service
 public class QuartzServiceImpl implements IQuartzService {
 
@@ -28,8 +25,8 @@ public class QuartzServiceImpl implements IQuartzService {
     public void startJob(String time, String jobName, String group) {
         try {
             // 创建jobDetail实例，绑定Job实现类
-            // 指明job的名称，所在组的名称，以及绑定job类
-            JobDetail jobDetail = JobBuilder.newJob(SendEmailJob.class).withIdentity(jobName, group).build();//设置Job的名字和组
+            //设置Job的名字和组
+            JobDetail jobDetail = JobBuilder.newJob(SendEmailJob.class).withIdentity(jobName, group).build();
             //corn表达式  每x秒执行一次
             CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(time);
             //设置定时任务的时间触发规则

@@ -1,6 +1,6 @@
-package com.hiQiBlog;
+package com.hiqiblog;
 
-import com.hiQiBlog.service.IQuartzService;
+import com.hiqiblog.service.IQuartzService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

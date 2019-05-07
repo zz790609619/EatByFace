@@ -1,6 +1,16 @@
-package com.hiQiBlog.service;
+package com.hiqiblog.service;
 
+/**
+ * @author ${ww}
+ * @Description: TODO
+ */
 public interface IQuartzService {
+    /**
+     * 开始一个任务
+     * @param time
+     * @param jobName
+     * @param group
+     */
     void startJob(String time, String jobName, String group);
 
     /****

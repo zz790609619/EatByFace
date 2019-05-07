@@ -1,7 +1,7 @@
 
-package com.hiQiBlog.controller;
-import com.hiQiBlog.entity.User;
-import com.hiQiBlog.service.UserService;
+package com.hiqiblog.controller;
+import com.hiqiblog.entity.User;
+import com.hiqiblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Song on 2017/2/15.
+ * @author ww
  * User控制层
  */
 @Controller
@@ -29,17 +29,22 @@ public class UserController {
         User user=new User();
         user.setId(id);
         user= userService.findUserById(user);
-        if(null != user)
+        if(null != user){
             return user.getId()+"/"+user.getName()+"/";
-        else return "null";
+        } else {
+            return "null" ;
+        }
     }
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     @ResponseBody
     public String show(){
-        List<User> userList=new ArrayList<>();
+        List<User> userList=new ArrayList<User>();
         userList= userService.getAllList();
-        if(null != userList)
+        if(null != userList){
             return "sas";
-        else return "null";
+        }
+        else{
+            return "null";
+        }
     }
 }

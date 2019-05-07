@@ -1,9 +1,9 @@
 
-package com.hiQiBlog.service.impl;
+package com.hiqiblog.service.impl;
 
-import com.hiQiBlog.entity.User;
-import com.hiQiBlog.mapper.UserMapper;
-import com.hiQiBlog.service.UserService;
+import com.hiqiblog.entity.User;
+import com.hiqiblog.mapper.UserMapper;
+import com.hiqiblog.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -12,7 +12,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+/**
+ * @author ${ww}
+ * @Description: TODO
+ */
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -31,8 +34,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllList() {
-        RedisSerializer redisSerializer=new StringRedisSerializer();//重新定义字符串系列化
-        redisTemplate.setKeySerializer(redisSerializer);//将字符串序列化加到模板key中
+        //重新定义字符串系列化
+        RedisSerializer redisSerializer=new StringRedisSerializer();
+        //将字符串序列化加到模板key中
+        redisTemplate.setKeySerializer(redisSerializer);
         List<User> userList=(List<User>)redisTemplate.opsForValue().get("getList");
         if(userList!=null){
             return userList;

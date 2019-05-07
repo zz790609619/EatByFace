@@ -1,5 +1,5 @@
 
-package com.hiQiBlog.config;
+package com.hiqiblog.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,7 +10,11 @@ import org.springframework.context.annotation.Primary;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
-
+/**
+ * @author ${ww}
+ * @Description: TODO
+ * @date
+ */
 @Configuration
 public class DruidConfiguration {
     @Value("${spring.datasource.url}")
@@ -52,8 +56,13 @@ public class DruidConfiguration {
     @Value("${spring.datasource.useGlobalDataSourceStat}")
     private boolean useGlobalDataSourceStat;
 
-    @Bean     //声明其为Bean实例
-    @Primary  //在同样的DataSource中，首先使用被标注的DataSource
+    /**
+     * 声明其为Bean实例
+     * 在同样的DataSource中，首先使用被标注的DataSource
+     * @return
+     */
+    @Bean
+    @Primary
     public DataSource dataSource(){
         DruidDataSource datasource = new DruidDataSource();
         datasource.setUrl(this.dbUrl);
