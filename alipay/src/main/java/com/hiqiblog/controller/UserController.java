@@ -18,7 +18,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
     @Autowired
-    private ISendEmailService semdEmailService;
+    private ISendEmailService sendEmailService;
     @RequestMapping(value = "/index")
     public String index(){
         return "index";
@@ -30,10 +30,24 @@ public class UserController {
         User user=new User();
         user.setId(id);
         user= userService.findUserById(user);
+        sendEmailService.sendEmail();
         if(null != user){
             return user.getId()+"/"+user.getName()+"/";
         } else {
             return "null" ;
+        }
+    }
+    @RequestMapping(value = "/insert",method = RequestMethod.GET)
+    @ResponseBody
+    public String show(@RequestParam(value = "name")String name){
+        User user=new User();
+        user.setId(2);
+        user.setName(name);
+       int result= userService.insertUser(user);
+        if(result != 0){
+            return "success";
+        } else {
+            return "fail" ;
         }
     }
     @RequestMapping(value = "/list",method = RequestMethod.GET)

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiqiblog.mapper.QuartzJobsMapper" >
+  <resultMap id="BaseResultMap" type="com.hiqiblog.entity.QuartzJobs" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="job_name" property="jobName" jdbcType="VARCHAR" />
+    <result column="job_group" property="jobGroup" jdbcType="VARCHAR" />
+    <result column="job_class_name" property="jobClassName" jdbcType="VARCHAR" />
+    <result column="cron_expression" property="cronExpression" jdbcType="VARCHAR" />
+    <result column="trigger_state" property="triggerState" jdbcType="VARCHAR" />
+    <result column="old_job_name" property="oldJobName" jdbcType="VARCHAR" />
+    <result column="old_job_group" property="oldJobGroup" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, job_name, job_group, job_class_name, cron_expression, trigger_state, old_job_name, 
+    old_job_group, description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_quartz_job
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tbl_quartz_job
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hiqiblog.entity.QuartzJobs" >
+    insert into tbl_quartz_job ( job_name, job_group,
+      job_class_name, cron_expression, trigger_state, 
+      old_job_name, old_job_group, description
+      )
+    values (#{jobName,jdbcType=VARCHAR}, #{jobGroup,jdbcType=VARCHAR},
+      #{jobClassName,jdbcType=VARCHAR}, #{cronExpression,jdbcType=VARCHAR}, #{triggerState,jdbcType=VARCHAR}, 
+      #{oldJobName,jdbcType=VARCHAR}, #{oldJobGroup,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hiqiblog.entity.QuartzJobs" >
+    insert into tbl_quartz_job
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="jobName != null" >
+        job_name,
+      </if>
+      <if test="jobGroup != null" >
+        job_group,
+      </if>
+      <if test="jobClassName != null" >
+        job_class_name,
+      </if>
+      <if test="cronExpression != null" >
+        cron_expression,
+      </if>
+      <if test="triggerState != null" >
+        trigger_state,
+      </if>
+      <if test="oldJobName != null" >
+        old_job_name,
+      </if>
+      <if test="oldJobGroup != null" >
+        old_job_group,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="jobName != null" >
+        #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobGroup != null" >
+        #{jobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="jobClassName != null" >
+        #{jobClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="cronExpression != null" >
+        #{cronExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="triggerState != null" >
+        #{triggerState,jdbcType=VARCHAR},
+      </if>
+      <if test="oldJobName != null" >
+        #{oldJobName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldJobGroup != null" >
+        #{oldJobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hiqiblog.entity.QuartzJobs" >
+    update tbl_quartz_job
+    <set >
+      <if test="jobName != null" >
+        job_name = #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobGroup != null" >
+        job_group = #{jobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="jobClassName != null" >
+        job_class_name = #{jobClassName,jdbcType=VARCHAR},
+      </if>
+      <if test="cronExpression != null" >
+        cron_expression = #{cronExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="triggerState != null" >
+        trigger_state = #{triggerState,jdbcType=VARCHAR},
+      </if>
+      <if test="oldJobName != null" >
+        old_job_name = #{oldJobName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldJobGroup != null" >
+        old_job_group = #{oldJobGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hiqiblog.entity.QuartzJobs" >
+    update tbl_quartz_job
+    set job_name = #{jobName,jdbcType=VARCHAR},
+      job_group = #{jobGroup,jdbcType=VARCHAR},
+      job_class_name = #{jobClassName,jdbcType=VARCHAR},
+      cron_expression = #{cronExpression,jdbcType=VARCHAR},
+      trigger_state = #{triggerState,jdbcType=VARCHAR},
+      old_job_name = #{oldJobName,jdbcType=VARCHAR},
+      old_job_group = #{oldJobGroup,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="listJob" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from tbl_quartz_job where
+      job_name LIKE #{jobName}
+  </select>
+
+  <select id="getJob" resultMap="BaseResultMap">
+        SELECT
+       <include refid="Base_Column_List" />
+        FROM
+          tbl_quartz_job
+        WHERE
+          job_group = #{jobGroup} AND job_name = #{jobName}
+    </select>
+
+</mapper>

@@ -29,5 +29,5 @@ HELP.md
 .vscode/
 ###log###
 *.log
-# Compiled class file
-*.class
+       # Compiled class file
+       *.class

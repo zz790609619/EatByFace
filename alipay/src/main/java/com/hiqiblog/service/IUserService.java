@@ -9,6 +9,7 @@ import java.util.List;
  * @author ${ww}=
  * @Description: TODO
  */
+
 public interface IUserService {
     /**
      * 根据id获取user
@@ -17,6 +18,12 @@ public interface IUserService {
      */
     User findUserById(User user);
 
+    /**
+     * 插入
+     * @param user
+     * @return
+     */
+    int insertUser(User user);
     /**
      * 获取所有用户
      * @return

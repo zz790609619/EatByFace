@@ -2,6 +2,7 @@
 package com.hiqiblog.mapper;
 
 import com.hiqiblog.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 

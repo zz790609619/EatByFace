@@ -33,6 +33,11 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public int insertUser(User user) {
+        return  userMapper.insert(user);
+    }
+
+    @Override
     public List<User> getAllList() {
         //重新定义字符串系列化
         RedisSerializer redisSerializer=new StringRedisSerializer();

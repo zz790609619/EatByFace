@@ -58,6 +58,7 @@ spring:
     username: root
     validationQuery: SELECT 1 FROM DUAL
   mvc:
+
     static-path-pattern: /static/**
     view:
       prefix: /templates/

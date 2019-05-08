@@ -1,6 +1,9 @@
 package com.hiqiblog.entity;
 
-public class QuartzJob {
+/**
+ * @author ww
+ */
+public class QuartzJobs {
     private Integer id;
 
     private String jobName;
