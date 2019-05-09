@@ -52,9 +52,10 @@ public class ApplicationInit implements CommandLineRunner {
         List<QuartzJobs> jobs = quartzJobsMapper.listJob("ss");
         //循环启动job
         for(QuartzJobs job : jobs) {
+
             jobService.schedulerJob(job);
             //如果数据库中状态为暂停 就暂停job
-            if (JobStatus.PAUSED.equals(job.getTriggerState())) {
+            if (JobStatus.PAUSED.equals(JobStatus.valueOf(job.getTriggerState()))||JobStatus.COMPLETE.equals(JobStatus.valueOf(job.getTriggerState()))) {
                 scheduler.pauseJob(new JobKey(job.getJobName(), job.getJobGroup()));
             }
         }

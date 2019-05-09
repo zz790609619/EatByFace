@@ -26,11 +26,10 @@ public class UserController {
 
     @RequestMapping(value = "/show",method = RequestMethod.GET)
     @ResponseBody
-    public String show(@RequestParam(value = "id")int id){
-        User user=new User();
-        user.setId(id);
+    public String show(User user){
+//        User user=new User();
+//        user.setId(id);
         user= userService.findUserById(user);
-        sendEmailService.sendEmail();
         if(null != user){
             return user.getId()+"/"+user.getName()+"/";
         } else {

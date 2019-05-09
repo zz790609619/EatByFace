@@ -19,10 +19,8 @@ import java.util.List;
  * @Version 1.0
  */
 @Service
-//        ("jobService")
 public class JobServiceImpl implements IJobService {
     @Autowired
-//    @Qualifier("quartzJobsMapper")
     private QuartzJobsMapper quartzJobsMapper;
     @Autowired
     private Scheduler scheduler;
