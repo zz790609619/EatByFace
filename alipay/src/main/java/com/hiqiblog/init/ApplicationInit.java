@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -40,7 +41,8 @@ public class ApplicationInit implements CommandLineRunner {
     private IJobService jobService;
     @Autowired
     private Scheduler scheduler;
-
+    @Autowired
+    private RedisTemplate redisTemplate;
     @Override
     public void run(String... args) throws Exception {
         loadJobToQuartz();

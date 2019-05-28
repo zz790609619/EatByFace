@@ -34,7 +34,7 @@ public class SendEmailJob implements  Job {
         System.out.println("现在的时间是：" + sf.format(date));
         //具体的业务逻辑
         System.out.println("开始任务");
-//        sendEmailService.sendEmail();
+        sendEmailService.sendEmail();
         System.out.println("结束任务");
     }
 }

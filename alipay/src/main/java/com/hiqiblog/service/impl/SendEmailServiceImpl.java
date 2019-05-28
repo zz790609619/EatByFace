@@ -32,8 +32,8 @@ public class SendEmailServiceImpl implements ISendEmailService {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo("790609619@qq.com");
         simpleMailMessage.setFrom(fromEmail);
-        simpleMailMessage.setSubject("测试");
-        simpleMailMessage.setText("utf-8");
+        simpleMailMessage.setSubject("渣渣傻逼");
+        simpleMailMessage.setText("渣渣傻逼");
         try {
             //执行发送
             javaMailSender.send(simpleMailMessage);
@@ -48,9 +48,9 @@ public class SendEmailServiceImpl implements ISendEmailService {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-            helper.setTo("1579258595@qq.com");
-            helper.setSubject("测试");
-            helper.setText("utf-8");
+            helper.setTo("554850043@qq.com");
+            helper.setSubject("渣渣傻逼");
+            helper.setText("渣渣傻逼");
             helper.setFrom(fromEmail);
 //            if(filepath.size()>0){						//读取附件文件（传入文件路径）
 //                for (Object string : filepath) {		//遍历文件数组，实现多个附件的添加
