@@ -51,13 +51,13 @@ public class UserController {
     }
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     @ResponseBody
-    public String show(){
+    public List<User>  show(){
         List<User> userList= userService.getAllList();
         if(null != userList){
-            return "sas";
+            return userList;
         }
         else{
-            return "null";
+            return null;
         }
     }
 }
