@@ -21,7 +21,6 @@ server:
     uri-encoding: utf-8
 
 spring:
-
   #  定时发送邮件
   mail:
     password: iptvzyrtftwobcib

@@ -44,8 +44,8 @@
 
 
         <!-- 配置表信息 -->
-        <table tableName="tbl_quartz_job"
-               domainObjectName="QuartzJobs" enableCountByExample="false"
+        <table tableName="user"
+               domainObjectName="User" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>

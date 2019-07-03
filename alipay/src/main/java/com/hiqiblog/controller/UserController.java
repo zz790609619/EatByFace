@@ -1,5 +1,6 @@
 
 package com.hiqiblog.controller;
+import com.hiqiblog.ViewModel.ResponseMessage;
 import com.hiqiblog.entity.User;
 import com.hiqiblog.service.ISendEmailService;
 import com.hiqiblog.service.IUserService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -27,8 +29,6 @@ public class UserController {
     @RequestMapping(value = "/show",method = RequestMethod.GET)
     @ResponseBody
     public String show(User user){
-//        User user=new User();
-//        user.setId(id);
         user= userService.findUserById(user);
         if(null != user){
             return user.getId()+"/"+user.getName()+"/";
@@ -36,28 +36,30 @@ public class UserController {
             return "null" ;
         }
     }
-    @RequestMapping(value = "/insert",method = RequestMethod.GET)
+    @RequestMapping(value = "/insert",method = RequestMethod.POST)
     @ResponseBody
-    public String show(@RequestParam(value = "name")String name){
-        User user=new User();
-        user.setId(2);
-        user.setName(name);
-       int result= userService.insertUser(user);
+    public ResponseMessage insert(@ModelAttribute User user){
+        ResponseMessage rm=new ResponseMessage();
+        int result= userService.insertUser(user);
         if(result != 0){
-            return "success";
+            rm.setCode(1);
+            rm.setMsg("欢迎来到新世界！");
+            return rm;
         } else {
-            return "fail" ;
+            rm.setCode(1001);
+            rm.setMsg("注册失败!");
+            return rm;
         }
     }
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     @ResponseBody
-    public String show(){
+    public List<User>  show(){
         List<User> userList= userService.getAllList();
         if(null != userList){
-            return "sas";
+            return userList;
         }
         else{
-            return "null";
+            return null;
         }
     }
 }
