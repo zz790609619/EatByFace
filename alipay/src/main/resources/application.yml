@@ -6,7 +6,7 @@ logging:
         demo:
           mapper: debug
           quartz: debug
-  file: quartz-service.log
+#  file: quartz-service.log
 
 #Mybatis
 mybatis:
