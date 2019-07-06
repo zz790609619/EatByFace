@@ -1,16 +1,20 @@
 package com.hiqiblog.ViewModel;
 
-public class ResponseMessage {
+import java.util.List;
 
-    private Integer code;
+public class ResponseMessage<T> {
+
+    private String code;
 
     private String msg;
 
-    public Integer getCode() {
+    public T entity;
+
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -21,5 +25,13 @@ public class ResponseMessage {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+    public T getEntity() {
+        return entity;
+    }
+
+    public void setEntity(T entity) {
+        this.entity = entity;
+    }
+
 
 }

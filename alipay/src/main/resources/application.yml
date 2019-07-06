@@ -20,8 +20,15 @@ server:
   tomcat:
     uri-encoding: utf-8
 
+#开启hystrix服务保护熔断降级
+#feign:
+#  hystrix:
+#    enabled: true
+
 spring:
-  #  定时发送邮件
+  application:
+    name: feign-client
+    #  定时发送邮件
   mail:
     password: iptvzyrtftwobcib
     default-encoding: UTF-8
@@ -101,5 +108,10 @@ quartz:
           threadsInheritContextClassLoaderOfInitializingThread: true
   #数据库方式
   job-store-type: jdbc
-
+#开启全局监控
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
 

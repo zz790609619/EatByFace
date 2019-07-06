@@ -21,6 +21,7 @@ public class UserServiceImpl implements IUserService {
      UserMapper userMapper;
     @Autowired
     private RedisTemplate<Object,Object> redisTemplate;
+
     @Override
     public User findUserById(User user){
         try{
@@ -32,8 +33,19 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public List<User> findUserByUsername(User user) {
+        return  userMapper.findUserByUsername(user);
+    }
+
+    @Override
     public int insertUser(User user) {
-        return  userMapper.insert(user);
+
+        int result=userMapper.insert(user);
+        RedisSerializer redisSerializer=new StringRedisSerializer();
+        redisTemplate.setKeySerializer(redisSerializer);
+        redisTemplate.delete("getList");
+        redisTemplate.opsForValue().set("getList",userMapper.getAllList());
+        return  result;
     }
 
     @Override
@@ -51,4 +63,21 @@ public class UserServiceImpl implements IUserService {
         }
 
     }
+
+    @Override
+    public int updateUserInfo(User user) {
+        int result=userMapper.updateUserInfo(user);
+        RedisSerializer redisSerializer=new StringRedisSerializer();
+        redisTemplate.setKeySerializer(redisSerializer);
+        redisTemplate.delete("getList");
+        redisTemplate.opsForValue().set("getList",userMapper.getAllList());
+        return result;
+    }
+
+    @Override
+    public User loginUser(User user) {
+
+        return userMapper.loginUser(user);
+    }
+
 }

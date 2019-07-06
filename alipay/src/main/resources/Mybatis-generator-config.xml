@@ -44,8 +44,8 @@
 
 
         <!-- 配置表信息 -->
-        <table tableName="user"
-               domainObjectName="User" enableCountByExample="false"
+        <table tableName="updateinfo"
+               domainObjectName="UpdateInfo" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>

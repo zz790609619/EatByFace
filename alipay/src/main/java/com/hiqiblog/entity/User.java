@@ -1,17 +1,29 @@
 package com.hiqiblog.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+/**
+ * @author ww
+ */
+public class User  implements Serializable {
     private Integer id;
 
-    private String name;
+    private String username;
 
     private String password;
 
     private Date createtime;
 
     private String path;
+
+    private String nickname;
+
+    private Integer usersex;
+
+    private String userdesc;
+
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -21,12 +33,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -51,5 +63,37 @@ public class User {
 
     public void setPath(String path) {
         this.path = path == null ? null : path.trim();
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname == null ? null : nickname.trim();
+    }
+
+    public Integer getUsersex() {
+        return usersex;
+    }
+
+    public void setUsersex(Integer usersex) {
+        this.usersex = usersex;
+    }
+
+    public String getUserdesc() {
+        return userdesc;
+    }
+
+    public void setUserdesc(String userdesc) {
+        this.userdesc = userdesc == null ? null : userdesc.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }
