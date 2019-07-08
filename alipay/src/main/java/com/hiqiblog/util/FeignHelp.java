@@ -1,9 +1,8 @@
-package com.hiqiblog.FeignHelp;
+package com.hiqiblog.util;
 
 
 import com.hiqiblog.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 /**

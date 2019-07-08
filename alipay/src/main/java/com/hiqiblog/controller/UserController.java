@@ -1,7 +1,7 @@
 
 package com.hiqiblog.controller;
 import com.alibaba.fastjson.JSONObject;
-import com.hiqiblog.FeignHelp.FeignHelp;
+import com.hiqiblog.util.FeignHelp;
 import com.hiqiblog.ViewModel.ImageDomain;
 import com.hiqiblog.ViewModel.ResponseMessage;
 import com.hiqiblog.entity.UpdateInfo;
@@ -9,9 +9,14 @@ import com.hiqiblog.entity.User;
 import com.hiqiblog.service.ISendEmailService;
 import com.hiqiblog.service.IUpdateInfoService;
 import com.hiqiblog.service.IUserService;
+import com.hiqiblog.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 /**
@@ -28,6 +33,8 @@ public class UserController {
     private FeignHelp feingnHelp;
     @Autowired
     private IUpdateInfoService updateInfoService;
+//    @Autowired
+//    private IpUtil ipUtil;
     @RequestMapping(value = "/index")
     public String index(){
         return "index";
@@ -99,7 +106,7 @@ public class UserController {
         }
         else {
             rm.setCode("1001");
-            rm.setMsg("补充信息失败!");
+            rm.setMsg("账号密码错误!");
             return rm;
         }
 
@@ -132,5 +139,17 @@ public class UserController {
         else{
             return null;
         }
+    }
+
+    @RequestMapping(value = "/getAdress", method = RequestMethod.GET)
+    @ResponseBody
+    public String getIp(HttpServletRequest request) {
+         try {
+           String host = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+           
+     }
+        String address=IpUtil.getIpAddr(request);
+        return address;
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author ${ww}
  */
 @SpringBootApplication
-@EnableFeignClients(basePackages = "com.hiqiblog.FeignHelp")
+@EnableFeignClients(basePackages = "com.hiqiblog.util")
 @MapperScan("com.hiqiblog.mapper")
 @ServletComponentScan
 public class HiQiBlogApplication {
