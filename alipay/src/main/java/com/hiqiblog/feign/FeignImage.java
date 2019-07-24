@@ -1,4 +1,4 @@
-package com.hiqiblog.util;
+package com.hiqiblog.feign;
 
 
 import com.hiqiblog.entity.User;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
         url = "https://cn.bing.com/"
 
 )
-public interface FeignHelp {
+public interface FeignImage {
     /**
      * 对应的服务里的接口地址，及请求方式
      */
