@@ -213,7 +213,7 @@ extends JFrame
             username = properties.getProperty("username",username).trim();
             password = properties.getProperty("password",password).trim();
 
-            // Queue Properties
+            // queue Properties
             browseQueues = properties.getProperty("browseQueues", browseQueues).trim();
 
             // Text Properties

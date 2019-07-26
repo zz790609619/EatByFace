@@ -109,7 +109,7 @@ public class Replier
             javax.jms.Queue queue = session.createQueue (rQueue);
             javax.jms.MessageConsumer receiver = session.createConsumer(queue);
             receiver.setMessageListener(this);
-            replier = session.createProducer(null);  // Queue will be set for each reply
+            replier = session.createProducer(null);  // queue will be set for each reply
             // Now that all setup is complete, start the Connection
             connect.start();
         }
@@ -188,7 +188,7 @@ public class Replier
                 String string = textMessage.getText();
                 System.out.println( "[Request] " + string );
 
-                // Check for a ReplyTo Queue
+                // Check for a ReplyTo queue
                 javax.jms.Queue replyQueue = (javax.jms.Queue) aMessage.getJMSReplyTo();
                 if (replyQueue != null)
                 {

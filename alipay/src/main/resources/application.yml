@@ -41,6 +41,24 @@ spring:
             required: true
           auth: true
     username: 554850043@qq.com
+  activemq:
+    user: admin
+    password: admin
+     #true 表示使用内置的MQ，false则连接服务器
+    in-memory: true
+      # 给java用的tcp端口是61616
+    broker-url: tcp://127.0.0.1:61616
+      #需要加入配置文件，支持发布订阅模型，默认只支持点对点
+    jms:
+      pub-sub-domain: true
+      pool:
+      #true表示使用连接池；false时，每发送一条数据创建一个连接
+      enabled: true
+      #最大连接数
+      max-connections: 50
+      packages:
+        trust-all: true
+
     #durid框架
   datasource:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500

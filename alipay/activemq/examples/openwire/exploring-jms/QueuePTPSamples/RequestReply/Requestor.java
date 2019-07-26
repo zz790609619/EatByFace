@@ -98,7 +98,7 @@ public class Requestor
             System.exit(1);
         }
 
-        // Create the Queue and QueueRequestor for sending requests.
+        // Create the queue and QueueRequestor for sending requests.
         javax.jms.Queue queue = null;
         try
         {

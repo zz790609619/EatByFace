@@ -101,7 +101,7 @@ public class SelectorTalk
             }
             if (rQueue != null)
             {
-                //NOTE: the Queue Receiver is set up with the Message Selector:
+                //NOTE: the queue Receiver is set up with the Message Selector:
                 javax.jms.Queue receiveQueue = receiveSession.createQueue (rQueue);
                 javax.jms.MessageConsumer qReceiver = receiveSession.createConsumer(receiveQueue, PROPERTY_NAME + " = \'" + selection + "\'");
                 qReceiver.setMessageListener(this);

@@ -15,7 +15,7 @@
  
 Sample Application
 
-Queue/PTP
+queue/PTP
 Send and receive using multiple sessions and a temporary queue
 
 This sample shows the round trip time for a message being sent to the broker
@@ -73,7 +73,7 @@ public class QueueRoundTrip
 
         try
         {
-            //Set up a temporary Queue:
+            //Set up a temporary queue:
             javax.jms.TemporaryQueue tempQueue = sendSession.createTemporaryQueue();
             receiver = receiveSession.createConsumer(tempQueue);
             sender = sendSession.createProducer(tempQueue);
@@ -85,11 +85,11 @@ public class QueueRoundTrip
             System.exit(1);
         }
 
-        //Send messages using Temporary Queue:
+        //Send messages using Temporary queue:
         try {
             System.out.println("QueueRoundTrip application:");
             System.out.println("===========================");
-            System.out.println("Sending Messages to Temporary Queue...");
+            System.out.println("Sending Messages to Temporary queue...");
 
             //create a message to send
             javax.jms.BytesMessage msg = sendSession.createBytesMessage();

@@ -38,6 +38,7 @@ public class UserController {
     @Autowired
     private FeignIp feignIp;
 
+
     @Autowired
     private IUpdateInfoService updateInfoService;
     @RequestMapping(value = "/index")
@@ -159,4 +160,5 @@ public class UserController {
             return city;
 
     }
+
 }
