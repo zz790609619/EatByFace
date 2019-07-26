@@ -1,17 +1,23 @@
 
 package com.hiqiblog.controller;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.hiqiblog.FeignHelp.FeignHelp;
+import com.hiqiblog.ViewModel.City;
+import com.hiqiblog.feign.FeignAddress;
+import com.hiqiblog.feign.FeignImage;
 import com.hiqiblog.ViewModel.ImageDomain;
 import com.hiqiblog.ViewModel.ResponseMessage;
 import com.hiqiblog.entity.UpdateInfo;
 import com.hiqiblog.entity.User;
+import com.hiqiblog.feign.FeignIp;
 import com.hiqiblog.service.ISendEmailService;
 import com.hiqiblog.service.IUpdateInfoService;
 import com.hiqiblog.service.IUserService;
+import com.hiqiblog.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -24,8 +30,15 @@ public class UserController {
     private IUserService userService;
     @Autowired
     private ISendEmailService sendEmailService;
+
     @Autowired
-    private FeignHelp feingnHelp;
+    private FeignImage feignImage;
+    @Autowired
+    private FeignAddress feignAddress;
+    @Autowired
+    private FeignIp feignIp;
+
+
     @Autowired
     private IUpdateInfoService updateInfoService;
     @RequestMapping(value = "/index")
@@ -99,7 +112,7 @@ public class UserController {
         }
         else {
             rm.setCode("1001");
-            rm.setMsg("补充信息失败!");
+            rm.setMsg("账号密码错误!");
             return rm;
         }
 
@@ -108,10 +121,9 @@ public class UserController {
     @RequestMapping(value = "/getImageByBingJson",method = RequestMethod.GET)
     @ResponseBody
     public ImageDomain getImageByBingJson(){
-        String jsonStr=feingnHelp.feignGet("js","0","1","zh-CN");
+        String jsonStr=feignImage.feignGet("js","0","1","zh-CN");
         JSONObject obj =  JSONObject.parseObject(jsonStr);
         ImageDomain entity=new ImageDomain();
-
         entity.setUrl(obj.getJSONArray("images").getJSONObject(0).getString("url"));
         entity.setTitle(obj.getJSONArray("images").getJSONObject(0).getString("copyright"));
         return entity;
@@ -133,4 +145,20 @@ public class UserController {
             return null;
         }
     }
+    @RequestMapping(value = "/getAdress", method = RequestMethod.GET)
+    @ResponseBody
+    public City getIp(HttpServletRequest request) {
+        String ip=IpUtil.getIpAddr(request);
+            String local="0:0:0:0:0:0:0:1";
+            if(local.equalsIgnoreCase(ip)){
+                //ip = InetAddress.getLocalHost().getHostAddress();
+                ip=IpUtil.getWebIP("http://ip.chinaz.com");
+            }
+            String result = feignAddress.feignGet("112.80.53.62");
+            JSONObject obj =  JSONObject.parseObject(result);
+            City city=obj.getJSONObject("data").toJavaObject(City.class);
+            return city;
+
+    }
+
 }

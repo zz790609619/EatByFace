@@ -1,6 +1,7 @@
 
 package com.hiqiblog.service.impl;
 
+import com.hiqiblog.config.RedisConfig;
 import com.hiqiblog.entity.User;
 import com.hiqiblog.mapper.UserMapper;
 import com.hiqiblog.service.IUserService;
@@ -21,7 +22,8 @@ public class UserServiceImpl implements IUserService {
      UserMapper userMapper;
     @Autowired
     private RedisTemplate<Object,Object> redisTemplate;
-
+    @Autowired
+    private RedisConfig redisConfig;
     @Override
     public User findUserById(User user){
         try{
