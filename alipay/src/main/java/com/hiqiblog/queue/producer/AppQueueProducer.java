@@ -2,6 +2,10 @@ package com.hiqiblog.queue.producer;
 
 import org.springframework.stereotype.Component;
 
+
+/**
+ * @author ww
+ */
 @Component
 public class AppQueueProducer extends BaseProducer {
 

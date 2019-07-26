@@ -3,6 +3,7 @@ package com.hiqiblog.controller;
 import com.hiqiblog.ViewModel.ResponseMessage;
 import com.hiqiblog.queue.producer.BaseProducer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class OrderController {
    * @param msg 支付信息
    * @return
    */
-  @GetMapping("order")
+  @GetMapping("queue")
   public Object order(String msg) {
     baseProducer.enqueue(msg);
     ResponseMessage responseMessage = new ResponseMessage();
@@ -32,7 +33,7 @@ public class OrderController {
     return responseMessage;
   }
 
-  @GetMapping("common")
+  @GetMapping("topic")
   public Object common(String msg) {
     baseProducer.enqueue(msg);
     ResponseMessage responseMessage = new ResponseMessage();
@@ -40,5 +41,6 @@ public class OrderController {
     responseMessage.setMsg("Success");
     return responseMessage;
   }
+
 }
 
